@@ -66,38 +66,18 @@ stfp.main = {
         "use strict"
 
         var ctx  = stfp.main._showText("", "white", true, "black", 50),
-            text = "Presiona ENTER para continuar ...",
-            tw = ctx.measureText(text).width,
-            image = new Image(),
-            image2 = new Image(),
-            ix, iw, iscale;
+            image = new Image();
 
         // Reset all ids
         ge.$(stfp.DEBUG_ID).innerHTML = "";
         ge.$(stfp.SCREEN_ID).innerHTML = "";
         ge.$(stfp.MINIMAP_ID).innerHTML = "";
 
-        image2.onload = function () {
-            ctx.drawImage(image2, -1, 0)
-        };
-        image2.src = "img/liz_antonella.png";
-
 
         image.onload = function () {
-            iscale = Math.floor(stfp.SCREEN_WIDTH / 2);
-            ix = (stfp.SCREEN_WIDTH - iscale) / 2;
-            iw = iscale;
 
-            /*
-            ctx.drawImage(image, 0, 0, 64, 64,
-                          ix , 70 - Math.floor(iscale * 0.15),
-                          iw, iw);
-            */
+            ctx.drawImage(image, 0, 0)
 
-            ctx.drawImage(image, ix, 70 - Math.floor(iscale * 0.15));
-
-
-            ctx.fillText(text, stfp.SCREEN_WIDTH / 2 - tw / 2, stfp.SCREEN_HEIGHT - 50);
 
             document.onkeydown = ge.bind(function (e) {
                 e = e || window.event;
@@ -107,7 +87,7 @@ stfp.main = {
                 }
             });
         };
-        image.src = "img/titulo.png";
+        image.src = "img/liz_antonella.png";
     },
 
 
